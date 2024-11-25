@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main App - User {{ user_id }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, User {{ user_id }}</h1>
+        <p>Select one of the following options:</p>
+
+        <!-- Form to add user details -->
+        <form id="detailForm">
+            <label for="userInput">Enter your activity:</label>
+            <input type="text" id="userInput" placeholder="E.g., reading, working...">
+            <input type="text" id="topicsInput" placeholder="E.g., work, study (comma-separated)">
+            <input type="time" id="timeInput">
+            <button type="submit">Add Detail</button>
+        </form>
+        <div id="detailResult"></div>
+
+        <!-- Predict next action at a specific time -->
+        <form id="predictionTimeForm">
+            <label for="timePredictInput">Enter Time for Prediction (HH:MM):</label>
+            <input type="time" id="timePredictInput">
+            <button type="submit">Predict Action</button>
+        </form>
+        <div id="predictionTimeResult"></div>
+
+        <!-- Generate insights -->
+        <button id="generateInsights">Generate Insights</button>
+        <div id="insightsResult"></div>
+
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </div>
+</body>
+</html>
